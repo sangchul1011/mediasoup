@@ -43,7 +43,7 @@ namespace RTC
 			this->dropped    = true;
 			this->dropReason = dropReason;
 
-			MS_WARN_TAG(rtp, "dropReason:%s", dropReason2String[this->dropReason]);
+			MS_WARN_TAG(rtp, "dropReason:%s", dropReason2String[this->dropReason].c_str());
 			Log();
 			Clear();
 		}
