@@ -1545,6 +1545,11 @@ namespace RTC
 	{
 		MS_TRACE();
 
+
+		MS_DEBUG_TAG(
+		  simulcast, "newTargetSpatialLayer: %" PRIi16 " newTargetTemporalLayer: %" PRIi16 " this->tsReferenceSpatialLayer: %" PRIi16 "",
+		  newTargetSpatialLayer, newTargetTemporalLayer, this->tsReferenceSpatialLayer);
+
 		// If we don't have yet a RTP timestamp reference, set it now.
 		if (newTargetSpatialLayer != -1 && this->tsReferenceSpatialLayer == -1)
 		{
@@ -1589,6 +1594,11 @@ namespace RTC
 		  this->targetTemporalLayer,
 		  this->id.c_str());
 
+
+		MS_DEBUG_TAG(
+		  simulcast, "this->targetSpatialLayer: %" PRIi16 " this->currentSpatialLayer: %" PRIi16 "",
+		  this->targetSpatialLayer, this->currentSpatialLayer);
+
 		// If the target spatial layer is different than the current one, request
 		// a key frame.
 		if (this->targetSpatialLayer != this->currentSpatialLayer)
@@ -1615,6 +1625,11 @@ namespace RTC
 		//   spatial layer, have Sender Report.
 		//
 		// clang-format off
+
+		MS_DEBUG_TAG(
+		  simulcast, "GetProducerTsReferenceRtpStream()->GetSenderReportNtpMs(): %d, spatialLayer:%d",
+		  GetProducerTsReferenceRtpStream()->GetSenderReportNtpMs(), spatialLayer);
+
 		return (
 			this->tsReferenceSpatialLayer == -1 ||
 			spatialLayer == this->tsReferenceSpatialLayer ||
